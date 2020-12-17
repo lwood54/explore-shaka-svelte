@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from "svelte";
 
   let isPaused = true;
@@ -23,7 +23,7 @@
 <div>
   <button
     on:click={handleClick}
-    class="ytp-play-button ytp-button"
+    class="play-button"
     aria-live="assertive"
     tabindex="32"
     aria-label="Pause">
@@ -64,12 +64,12 @@
     background: transparent;
   }
 
-  .ytp-play-button {
+  .play-button {
     fill: black;
     opacity: 0.65;
   }
 
-  .ytp-play-button:hover {
+  .play-button:hover {
     cursor: pointer;
     opacity: 1;
   }

@@ -9,8 +9,6 @@
   let time = 0;
   let duration: number;
   let paused = true;
-  let showControls = true;
-  let showControlsTimeout;
 
   // let videoContainer: HTMLDivElement;
   let videoComponent: HTMLVideoElement;
