@@ -58,13 +58,10 @@
 <style>
   @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100);
 
-  button {
+  .play-button {
     outline: none;
     border: 0px solid;
     background: transparent;
-  }
-
-  .play-button {
     fill: black;
     opacity: 0.65;
   }
