@@ -35,9 +35,7 @@
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
-        <path
-          id="ytp-12"
-          d="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28">
+        <path id="ytp-12" d={pause}>
           <animate
             bind:this={animation}
             begin="indefinite"
@@ -68,7 +66,7 @@
 
   .ytp-play-button {
     fill: black;
-    opacity: 0.85;
+    opacity: 0.65;
   }
 
   .ytp-play-button:hover {
