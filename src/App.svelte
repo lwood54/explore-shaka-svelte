@@ -1,6 +1,7 @@
 <script>
   import RetroPlayer from "./components/RetroPlayer.svelte";
-  // your script goes here
+  import SamplePlayer from "./components/SamplePlayer.svelte";
 </script>
 
 <RetroPlayer />
+<SamplePlayer />
