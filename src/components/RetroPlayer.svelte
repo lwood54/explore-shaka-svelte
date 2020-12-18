@@ -1,5 +1,7 @@
 <script lang="ts">
-  import shaka from "shaka-player/dist/shaka-player.compiled.js";
+  import shaka, {
+    FastForwardButton,
+  } from "shaka-player/dist/shaka-player.compiled.js";
   import { onMount } from "svelte";
   import PlayBtn from "./PlayBtn.svelte";
   // import Text from "./components/overlays/Text.svelte";
@@ -9,9 +11,15 @@
   let time = 0;
   let duration: number;
   let paused = true;
+  let controlsContainer: HTMLDivElement;
+  let timeStatus: HTMLDivElement;
+  let ffB: HTMLButtonElement;
 
   // let videoContainer: HTMLDivElement;
   let videoComponent: HTMLVideoElement;
+  $: if (timeStatus) {
+    timeStatus.style.width = `${time}%`;
+  }
 
   onMount(async () => {
     const manifestUri =
@@ -43,9 +51,14 @@
     bind:duration
     bind:paused><track kind="captions" />
   </video>
-  <div class="controls">
+  <div class="controls" bind:this={controlsContainer}>
     <div class="btn_play">
       <PlayBtn on:isPaused={togglePlay} />
+    </div>
+    <h3>TIME: {time}</h3>
+    <h3>DURATION: {duration}</h3>
+    <div class="time-status-container">
+      <div class="time-status" bind:this={timeStatus} />
     </div>
   </div>
 </div>
@@ -60,5 +73,15 @@
   .btn_play {
     height: 50px;
     width: 50px;
+  }
+
+  .time-status-container {
+    width: 100%;
+  }
+
+  .time-status {
+    width: 10%;
+    height: 50px;
+    background-color: blue;
   }
 </style>
