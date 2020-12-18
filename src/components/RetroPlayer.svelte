@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { v_player } from "../stores/v_player_store";
   import shaka, {
     FastForwardButton,
   } from "shaka-player/dist/shaka-player.compiled.js";
@@ -8,12 +9,15 @@
 
   // export let textOverlay: string = "Test Text Overlay";
 
+  // define the store
+  let unsubscribe: object;
+
   let time = 0;
   let duration: number;
   let paused = true;
   let controlsContainer: HTMLDivElement;
   let timeStatus: HTMLDivElement;
-  let ffB: HTMLButtonElement;
+  let player: any;
 
   // let videoContainer: HTMLDivElement;
   let videoComponent: HTMLVideoElement;
@@ -24,8 +28,9 @@
   onMount(async () => {
     const manifestUri =
       "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
-    const player = new shaka.Player(videoComponent);
+    player = new shaka.Player(videoComponent);
     player.addEventListener("error", (e) => console.error(e));
+    player.configure("preferredAudioLanguage", "en");
 
     // load manifest
     try {
